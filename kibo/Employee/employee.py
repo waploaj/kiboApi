@@ -15,7 +15,6 @@ class Employee(UserMixin):
             else:
                 return False
         except Exception as e:
-            #TODO: comeback and handle smtp mail for error notification
             print(e)
         finally:
             cursor.close()
@@ -25,7 +24,8 @@ class Employee(UserMixin):
         cursor = None
         try:
             cursor = kasaa()
-            row = cursor.execute("SELECT * FROM ospos_employees WHERE ospos_employees.deleted = 0")
+            cursor.execute("SELECT * FROM ospos_employees WHERE ospos_employees.deleted = 0")
+            row  = cursor.rowcount
             return row
         except Exception as e:
             print(e)
@@ -46,6 +46,8 @@ class Employee(UserMixin):
             print(e)
         finally:
             cursor.close()
+
+
     def get_info(self,employee_id):
         """Get a  particular  employee infomation from database"""
         try:
@@ -59,6 +61,8 @@ class Employee(UserMixin):
             print(e)
         finally:
             cursor.close()
+
+            
 
     def get_multiple_info(self, employees_ids):
         """Get info of multiple Employees in database"""
@@ -130,18 +134,20 @@ class Employee(UserMixin):
                 SELECT ospos_people.first_name,ospos_people.last_name
                 FROM ospos_employees
                 INNER JOIN ospos_people ON ospos_employees.person_id = ospos_people.person_id
-                WHERE ospos_employees.deleted = 0 AND ospos_people.first_name LIKE %s OR ospos_people.last_name LIKE %s 
+                WHERE ospos_employees.deleted = 0 AND ospos_people.first_name LIKE %s OR ospos_people.last_name LIKE %s
                 OR ospos_people.phone_number LIKE %s OR ospos_people.email LIKE %s
                 ORDER BY ospos_people.first_name ASC LIMIT %s
-                
+
                 ''',(search,search,search,search,limit)
             )
             row  = cursor.fetchall()
-            return row
+            for r in row:
+                suggestions.append(r["first_name"]+ " " + r["last_name"])
+            return suggestions
         except Exception as e:
             print(e)
         finally:
             cursor.close()
 
 pip = Employee()
-print(pip.search_suggestion("abdallah@waploaj.com"))
+print(pip.get_total_row())
