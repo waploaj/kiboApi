@@ -1,28 +1,40 @@
 from kibo.Config.database import mysql
 import pymysql
-#import   smtplib
-from email.message import EmailMessage
-import os
-
-msg = EmailMessage()
-msg["from"] = "abdallah@mu-agency.com"
-msg["to"] = "mewaploaj@hotmail.com"
-msg["subject"] = f"Un error occured on {os.getcwd()}"
+import logging
 
 
-def kasaa():
+class Connection:
+    conn = None
 
+    def openconnection(self):
         try:
-            employee_id =1
-            conn = mysql.connect()
-            cursor = conn.cursor(pymysql.cursors.DictCursor)
+            if self.conn == None:
+                self.conn = mysql.connect()
+        except pymysql.MySQLError as e:
+            print(e)
+        finally:
+            logging.info("connection was opened")
 
-            return cursor
-        except Exception as e:
-            # with smtplib.SMTP_SSL("mu-agency.com",465) as server:
-            #     server.login("abdallah@mu-agency.com","1234Xta12345.")
-            #     msg.set_content(e)
-            #     server.send_message(msg)
-            print("An email has been sent to waploaj")
+    def run_query(self,query):
+        try:
+            self.openconnection()
+            with self.conn.cursor(pymysql.cursors.DictCursor) as cursor:
+                if 'SELECT'.lower() in query.lower():
+                    cursor.execute(query)
+                    result = cursor.fetchall()
+                    return result
+                else:
+                    cursor.execute(query)
+                    affectedrow = cursor.rowcount
+                    return affectedrow
+        except pymysql.MySQLError as e:
+            print(e)
+        finally:
+            if self.conn:
+                self.conn.close()
+                self.conn = None
+                logging.info("connection is closed")
+
+
 
 
