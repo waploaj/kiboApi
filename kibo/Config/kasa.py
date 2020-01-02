@@ -26,7 +26,7 @@ class Connection:
                 else:
                     cursor.execute(query)
                     affectedrow = cursor.rowcount
-                    return affectedrow
+                    return f"{affectedrow} number of column affected"
         except pymysql.MySQLError as e:
             print(e)
         finally:

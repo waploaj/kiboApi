@@ -82,10 +82,53 @@ class Item:
         finally:
             cursor.close()
 
+    def get_multiple_info(self,items_ids=[]):
+        """Get multiple info on items"""
+        cursor = None
+        try:
+            cursor = kasaa()
+            for item in items_ids:
+                cursor.executemany("SELECT * FROM ospos_items WHERE ospos_items.item_id =%s",(items_ids))
+                row = cursor.fetchall()
+                yield row
+        except Exception as e:
+            pass
+        finally:
+            cursor.close()
+
+    def get_itemby_itemNumber(self,barcode):
+        """Get item id given item number or barcode"""
+        cursor = None
+        try:
+            cursor = kasaa()
+            cursor.execute("SELECT ospos_items.item_id FROM ospos_items WHERE ospos_items.deleted = 0 AND ospos_items.item_number = %s",(barcode))
+            row = cursor.fetchall()
+            if row:
+                return row
+            else:
+                return "Item does not exist"
+        except Exception as e:
+            pass
+        finally:
+            cursor.close()
+
+    def save_item(self,item_data):
+        """Save the items data and updpate"""
+        cursor = None
+        try:
+            item_id = item_data["item_id"]
+            if Item.exists(item_id) == False:
+                cursor = kasaa()
+                cursor.execute("""
+                INSERT INTO ospos_items (KEY,VALUE) VALUES {item_data}
+                """)
+
+
+
 
 
 
 
 
 pip = Item()
-print(pip.get_number_row())
+print(pip.get_itemby_itemNumber(125))
