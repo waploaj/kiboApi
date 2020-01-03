@@ -25,6 +25,7 @@ class Connection:
                     return result
                 else:
                     cursor.execute(query)
+                    self.conn.commit()
                     affectedrow = cursor.rowcount
                     return f"{affectedrow} number of column affected"
         except pymysql.MySQLError as e:

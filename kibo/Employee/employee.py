@@ -1,14 +1,14 @@
-from kibo.Config.kasa import kasaa
+from kibo.Config.kasa import Connection
 from kibo.Config.database import bcrypt
 import os,jsonify
 from flask_login import UserMixin
-class Employee(UserMixin):
+class Employee(UserMixin,Connection):
     """Contain all attribute and methods of calling an employee"""
 
     def exists(self,person_id):
         """Check if given person__id is an employee and exists"""
         try:
-            cursor = kasaa()
+            self.openconnection()
             row = cursor.execute("SELECT * FROM ospos_employees WHERE ospos_employees.person_id = %s",(person_id))
             if  row > 0:
                 return True
