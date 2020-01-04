@@ -6,18 +6,18 @@ class Employee(UserMixin,Connection):
     """Contain all attribute and methods of calling an employee"""
 
     def exists(self,person_id):
-        """Check if given person__id is an employee and exists"""
+        """Check if given person__id is an employee and exists
+        :type person_id: object
+        """
         try:
             self.openconnection()
-            row = cursor.execute("SELECT * FROM ospos_employees WHERE ospos_employees.person_id = %s",(person_id))
-            if  row > 0:
+            resut =  self.run_query("SELECT * FROM ospos_employees WHERE ospos_employees.person_id = %s",(person_id))
+            if resut:
                 return True
             else:
-                return False
-        except Exception as e:
-            print(e)
-        finally:
-            cursor.close()
+                return  False
+
+
 
     def get_total_row(self):
         """Return the total number of employees in database"""
