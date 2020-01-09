@@ -10,7 +10,7 @@ mail_handler = SMTPHandler(
 )
 mail_handler.setLevel(logging.WARNING)
 mail_handler.setFormatter(logging.Formatter(
-    '[%(asctime)] %(levelname)s in %(module): %(message))'))
+    '[%(asctime)s] %(levelname)s in %(module)s: %(message)s)'))
 
 app = Flask(__name__)
 try:
