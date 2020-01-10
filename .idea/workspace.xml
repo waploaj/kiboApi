@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ebb58184-836d-4db5-83ff-2fc220f3c936" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kibo/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/kibo/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kibo/Employee/employee.py" beforeDir="false" afterPath="$PROJECT_DIR$/kibo/Employee/employee.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +39,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.__init__">
+  <component name="RunManager" selected="Python.employee">
     <configuration name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="duka" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -147,9 +147,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.employee" />
         <item itemvalue="Python.__init__" />
         <item itemvalue="Python.executiontime" />
-        <item itemvalue="Python.employee" />
         <item itemvalue="Python.kasa" />
         <item itemvalue="Python.item" />
       </list>
@@ -198,30 +198,30 @@
       <screen x="70" y="27" width="1610" height="1023" />
     </state>
     <state x="648" y="305" width="424" height="491" key="FileChooserDialogImpl/70.27.1610.1023@70.27.1610.1023" timestamp="1575333776437" />
-    <state width="1587" height="252" key="GridCell.Tab.0.bottom" timestamp="1578269803756">
+    <state width="1587" height="252" key="GridCell.Tab.0.bottom" timestamp="1578686161009">
       <screen x="70" y="27" width="1610" height="1023" />
     </state>
-    <state width="1587" height="252" key="GridCell.Tab.0.bottom/70.27.1610.1023@70.27.1610.1023" timestamp="1578269803756" />
-    <state width="1587" height="252" key="GridCell.Tab.0.center" timestamp="1578269803756">
+    <state width="1587" height="252" key="GridCell.Tab.0.bottom/70.27.1610.1023@70.27.1610.1023" timestamp="1578686161009" />
+    <state width="1587" height="252" key="GridCell.Tab.0.center" timestamp="1578686161008">
       <screen x="70" y="27" width="1610" height="1023" />
     </state>
-    <state width="1587" height="252" key="GridCell.Tab.0.center/70.27.1610.1023@70.27.1610.1023" timestamp="1578269803756" />
-    <state width="1587" height="252" key="GridCell.Tab.0.left" timestamp="1578269803755">
+    <state width="1587" height="252" key="GridCell.Tab.0.center/70.27.1610.1023@70.27.1610.1023" timestamp="1578686161008" />
+    <state width="1587" height="252" key="GridCell.Tab.0.left" timestamp="1578686161007">
       <screen x="70" y="27" width="1610" height="1023" />
     </state>
-    <state width="1587" height="252" key="GridCell.Tab.0.left/70.27.1610.1023@70.27.1610.1023" timestamp="1578269803755" />
-    <state width="1587" height="252" key="GridCell.Tab.0.right" timestamp="1578269803756">
+    <state width="1587" height="252" key="GridCell.Tab.0.left/70.27.1610.1023@70.27.1610.1023" timestamp="1578686161007" />
+    <state width="1587" height="252" key="GridCell.Tab.0.right" timestamp="1578686161009">
       <screen x="70" y="27" width="1610" height="1023" />
     </state>
-    <state width="1587" height="252" key="GridCell.Tab.0.right/70.27.1610.1023@70.27.1610.1023" timestamp="1578269803756" />
+    <state width="1587" height="252" key="GridCell.Tab.0.right/70.27.1610.1023@70.27.1610.1023" timestamp="1578686161009" />
     <state x="364" y="173" width="1022" height="737" key="SettingsEditor" timestamp="1575333794196">
       <screen x="70" y="27" width="1610" height="1023" />
     </state>
     <state x="364" y="173" width="1022" height="737" key="SettingsEditor/70.27.1610.1023@70.27.1610.1023" timestamp="1575333794196" />
-    <state x="531" y="366" key="com.intellij.ide.util.TipDialog" timestamp="1578603088831">
+    <state x="531" y="366" key="com.intellij.ide.util.TipDialog" timestamp="1578682090740">
       <screen x="70" y="27" width="1610" height="1023" />
     </state>
-    <state x="531" y="366" key="com.intellij.ide.util.TipDialog/70.27.1610.1023@70.27.1610.1023" timestamp="1578603088831" />
+    <state x="531" y="366" key="com.intellij.ide.util.TipDialog/70.27.1610.1023@70.27.1610.1023" timestamp="1578682090740" />
     <state x="643" y="458" width="454" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1575374567208">
       <screen x="70" y="27" width="1610" height="1023" />
     </state>

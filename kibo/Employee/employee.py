@@ -9,13 +9,19 @@ class Employee(UserMixin,Connection):
         """Check if given person__id is an employee and exists
         :type person_id: object
         """
-
-        self.openconnection()
-        resut = self.run_query("SELECT * FROM ospos_employees WHERE ospos_employees.person_id = %s", (person_id))
-        if resut:
-            return True
-        else:
-            return False
+        try:
+            self.openconnection()
+            resut = self.run_query("SELECT * FROM ospos_employees WHERE ospos_employees.person_id = %s", (person_id))
+            if resut:
+                return True
+            else:
+                return False
+        except Exception as e:
+            raise (e)
+        finally:
+            if self.conn:
+                self.conn.close()
+                self.conn = None
 
 
 
@@ -151,5 +157,5 @@ class Employee(UserMixin,Connection):
     #     finally:
     #         cursor.close()
 
-pip = Employee()
-print(pip.exists(1))
+p = Employee()
+print(p.exists(1))
