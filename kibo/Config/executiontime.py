@@ -1,5 +1,5 @@
 import  time
-
+## This decorator mesure the time for a function to executed
 
 def timeit(method):
     def timed(*args, **kwargs):
